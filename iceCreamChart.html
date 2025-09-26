@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>아이스크림 판매량</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #d35400; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 6px 0; }
+    .highlight { font-weight: bold; color: #27ae60; }
+  </style>
+</head>
+<body>
+  <h1>🍦 아이스크림 판매 통계</h1>
+  <p id="best"></p>
+  <h2>판매량 순위</h2>
+  <ul id="ranking"></ul>
+
+  <script>
+    // 맛별 판매량 데이터 (예시)
+    let flavorDistribution = {
+      Chocolate: 1,
+      Vanilla: 3,
+      "Mint Chip": 1,
+      Raspberry: 1,
+      StrawBerry: 1
+    };
+
+    // 가장 많이 팔린 맛 찾기
+    let maxFlavor = Object.keys(flavorDistribution).reduce((a, b) =>
+      flavorDistribution[a] > flavorDistribution[b] ? a : b
+    );
+
+    // 결과 출력
+    document.getElementById("best").innerHTML =
+      `가장 많이 팔린 맛은 <span class="highlight">${maxFlavor}</span> (${flavorDistribution[maxFlavor]}개)`;
+
+    // 판매량 순위 정렬
+    let sortedFlavors = Object.entries(flavorDistribution)
+      .sort((a, b) => b[1] - a[1]);
+
+    let rankingList = document.getElementById("ranking");
+    sortedFlavors.forEach(([flavor, count], idx) => {
+      let li = document.createElement("li");
+      li.textContent = `${idx + 1}위: ${flavor} (${count}개)`;
+      rankingList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
