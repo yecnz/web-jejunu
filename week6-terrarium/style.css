@@ -1,0 +1,116 @@
+h1 {
+  color: rgb(125, 125, 158);
+  text-align: center;
+  user-select: none;
+  position: absolute;
+  width: 100%; 
+  text-align: center; 
+  top: 15px; 
+  left: 0;
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(#f1fffe, #ffffff);
+}
+
+.container {
+  background-color: #eee;
+  width: 15%;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  padding: 10px;
+}
+
+#left-container {
+  left: 0;
+}
+
+#right-container {
+  right: 0;
+}
+
+.plant-holder {
+  position: relative;
+  height: 13%;
+  left: -10px;
+}
+
+.plant {
+  position: absolute;
+  width: 120px;
+  height: auto;
+  z-index: 2;
+}
+
+.jar-walls {
+  height: 80%;
+  width: 60%;
+  background: rgba(180, 210, 210, 0.8);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: 0.5%;
+  left: 20%;
+  z-index: 1;
+}
+
+.jar-top {
+  width: 50%;
+  height: 5%;
+  background: #d1e1df;
+  position: absolute;
+  bottom: 80.5%;
+  left: 25%;
+  z-index: 1;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.jar-bottom {
+  width: 50%;
+  height: 1%;
+  background: #d1e1df;
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  z-index: 1;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.dirt {
+  width: 60%;
+  height: 5%;
+  background: #3a241d;
+  border-radius: 0 0 1rem 1rem;
+  position: absolute;
+  bottom: 1%;
+  left: 20%;
+  z-index: 0;
+}
+
+.jar-glossy-long {
+  width: 2%;
+  height: 35%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.4));
+  border-radius: 1rem;
+  position: absolute;
+  left: 7%;
+  top: 18%;
+  z-index: 20;
+}
+
+.jar-glossy-short {
+  width: 1.5%;
+  height: 10%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+  border-radius: 1rem;
+  position: absolute;
+  left: 7%;
+  top: 58%;
+  z-index: 20;
+}
