@@ -5,9 +5,7 @@ const quotes = [
     'I never make exceptions. An exception disproves the rule.',
     'What one man can invent another can discover.',
     'Nothing clears up a case so much as stating it to another person.',
-    'Education never ends, Watson. It is a series of lessons, with the greatest for the last.',
-    'Hello.'
-    ];
+    'Education never ends, Watson. It is a series of lessons, with the greatest for the last.'    ];
 
 let words = [];
 let wordIndex = 0;
@@ -21,6 +19,7 @@ const startButton = document.getElementById('start');
 const modal = document.getElementById('result-modal');
 const closeModal = document.getElementById('close-modal');
 const modalMessageElement = document.getElementById('modal-message');
+const HIGH_SCORE_KEY = 'typingGameHighScore';
 
 document.getElementById('start').addEventListener('click', () => {
     const quoteIndex = Math.floor(Math.random() * quotes.length); // 무작위 인덱스생성
@@ -46,12 +45,23 @@ document.getElementById('start').addEventListener('click', () => {
         const currentWord = words[wordIndex]; // 현재 타이핑할 단어를 currentWord에 저장
         const typedValue = typedValueElement.value; // 입력한 값을 typedValue에 저장
         
-        if (typedValue === currentWord && wordIndex === words.length - 1) { // 마지막 단어까지 정확히 입력했는 지 체크
+        if (typedValue.trim() === currentWord && wordIndex === words.length - 1) { // 마지막 단어까지 정확히 입력했는 지 체크
         const elapsedTime = new Date().getTime() - startTime; // 타이핑에 소요된 시간 계산
-        const message = `CONGRATULATIONS! You finished in ${elapsedTime / 1000} seconds.` ; // 타이핑 완료 메시지
-        messageElement.innerText = message; //생성된 메시지 화면에 표시
+        const finalTime = elapsedTime / 1000;
 
-        modalMessageElement.innerText = message;
+        const storedHighScore = parseFloat(localStorage.getItem(HIGH_SCORE_KEY) || 0);
+        let message = `CONGRATULATIONS!\nYou finished in ${finalTime} seconds.`;
+        
+        if (storedHighScore === 0 || finalTime < storedHighScore) {
+            localStorage.setItem(HIGH_SCORE_KEY, finalTime); // 새 기록 저장
+            message += '\n NEW HIGH SCORE!'; // 새 기록 메시지
+        } else {
+            message += `\n(Best: ${storedHighScore} seconds)`; // 기존 기록 보여주기
+        }
+
+        modalMessageElement.innerText = message; //생성된 메시지 화면에 표시
+        messageElement.innerText = '';
+        
         typedValueElement.disabled = true;
         startButton.disabled = false; 
         inputActive = false;
@@ -67,12 +77,15 @@ document.getElementById('start').addEventListener('click', () => {
         wordElement.className = ''; // 클래스 제거
         }
         quoteElement.childNodes[wordIndex].className = 'highlight'; // 다음으로 타이핑할 단어에 클래스 추가
-        } else if (currentWord.startsWith(typedValue)) { //현재 단어의 일부를 맞게 입력하고 있는 지 확인
-        typedValueElement.className = ''; // 올바르면 클래스 제거
+        typedValueElement.className = '';
+        } 
+        
+        else if (currentWord.startsWith(typedValue)) { 
+            typedValueElement.className = 'correct'; 
         } else {
-        typedValueElement.className = 'error'; // 틀리면 error 클래스 추가
+            typedValueElement.className = 'error'; 
         }
-        });
+    });
         typedValueElement.addEventListener('focus', () => inputActive = true);
         startButton.addEventListener('focus', () => inputActive = true);
     
