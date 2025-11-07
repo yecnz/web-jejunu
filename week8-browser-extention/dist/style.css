@@ -65,6 +65,7 @@ img {
     box-sizing: border-box; 
     background-color: #eaeaea;
     display: block;
+    margin-bottom: 15px;
 }
 
 .search-btn {
@@ -93,19 +94,6 @@ img {
     margin-top: 10px;
 }
 
-#clearBtn {
-    background-color: #888;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    margin-top: 15px;
-    width: 100%;
-    transition: background-color 0.2s;
-}
-
-#clearBtn:hover {
-    background-color: #666;
-}
 
 .results {
     border: 2px solid #0c6b3e;
@@ -170,10 +158,4 @@ img {
         border-color: blue;
     }
 
-    #clearBtn {
-        background-color: #666;
-    }
-    #clearBtn:hover {
-        background-color: #888;
-    }
 }

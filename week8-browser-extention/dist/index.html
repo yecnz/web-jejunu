@@ -20,7 +20,14 @@
     </div>
     <div>
     <label for="region">Region Name</label>
-    <input type="text" id="region" required class="region-name" />
+    <select class="region-name" id="region-name" required>
+        <option value="" disabled selected>-- 지역을 선택하세요 --</option>
+        
+        <option value="KR">South Korea (한국)</option>
+        <option value="DE">Germany (독일)</option>
+        <option value="JP">Japan (일본)</option>
+        </select>
+
     </div>
     <div>
     <label for="api">Your API Key from tmrow</label>
@@ -38,7 +45,7 @@
     <p><strong>Carbon Usage: </strong><span class="carbon-usage"></span></p>
     <p><strong>Fossil Fuel Percentage: </strong><span class="fossil-fuel"></span></p>
     </div>
-    <button class="clear-btn">Change region</button>
+    <button class="clear-btn search-btn">Change region</button>
 </div>
 
 <script src="main.js"></script>
