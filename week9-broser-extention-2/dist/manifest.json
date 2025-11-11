@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "지역어 사전",
+    "version": "1.0",
+    "description": "국립국어원 지역어 어휘 API를 이용한 사투리 검색기",
+    "action": {
+      "default_popup": "index.html"
+    },
+    "host_permissions": [
+      "https://dialect.korean.go.kr/"
+    ]
+  }

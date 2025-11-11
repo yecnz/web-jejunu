@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>지역어 사전</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="image.png" alt="사전 이미지" class="header-image">
+        <h1>지역어 사전</h1>
+        
+        <div class="form-data">
+            <div>
+                <label for="api-key">API 키</label>
+                <input type="text" id="api-key" placeholder="발급받은 API 키를 입력하세요">
+            </div>
+            <div>
+                <label for="search-word">검색할 단어 (표준어 또는 지역어)</label>
+                <input type="text" id="search-word" placeholder="예: '정구지' 또는 '부추'">
+            </div>
+            
+            <button id="search-btn">검색하기</button>
+        </div>
+
+        <div id="errors" class="errors"></div>
+        <div id="results-container">
+            </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
