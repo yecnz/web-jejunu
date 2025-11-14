@@ -5,9 +5,10 @@ body {
 }
 
 .header-image {
-    width: 350px;
+    width: 320px;
     height: auto;
     display: block;
+    margin: 0 auto 15px;
 }
 
 .container {
