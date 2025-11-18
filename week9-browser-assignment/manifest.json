@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "외규장각 의궤 검색기",
+    "version": "1.0",
+    "description": "국립중앙박물관 의궤 OpenAPI 검색",
+    "action": {
+      "default_popup": "index.html"
+    },
+    "icons": {
+      "128": "icon.png"
+    },
+    "host_permissions": [
+      "http://www.museum.go.kr/"
+    ]
+  }

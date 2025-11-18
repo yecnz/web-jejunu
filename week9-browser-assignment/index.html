@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>의궤 검색기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="icon.png" alt="의궤 아이콘" class="header-image">
+
+        <h1>외규장각 의궤 검색기</h1>
+        
+        <div class="form-data">
+            <div>
+                <label for="api-key">API 키</label>
+                <input type="text" id="api-key" placeholder="발급받은 API 키(id)를 입력">
+            </div>
+
+            <div>
+                <label for="data-type">의궤 분류 선택</label>
+                <select id="data-type" required>
+                    <option value="seoji" selected>서지 (책 정보)</option>
+                    <option value="haeje">해제 (요약)</option>
+                    <option value="banchado">반차도 (행렬도)</option>
+                    <option value="dosul">도설 (그림/물건)</option>
+                    <option value="content">의궤본문</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="search-word">궁금한 단어(키워드)</label>
+                <input type="text" id="search-word" placeholder="예: '인조', '정조'">
+            </div>
+            
+            <button id="search-btn">검색하기</button>
+        </div>
+
+        <div id="errors" class="errors"></div>
+        <div id="results-container">
+            </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
